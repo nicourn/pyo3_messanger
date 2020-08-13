@@ -1,0 +1,15 @@
+[package]
+name = "not_alone"
+version = "0.1.0"
+authors = ["nicourn <s57111702@gmain.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "not_alone"
+crate-type = ["cdylib"]
+
+[dependencies.pyo3]
+version = "*"
+features = ["extension-module"]
