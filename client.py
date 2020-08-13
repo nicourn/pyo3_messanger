@@ -2,8 +2,6 @@ import not_alone
 from PyQt5 import QtWidgets, QtCore, QtGui
 import time
 
-
-
 class MessageHandler(QtCore.QThread):
     new_message = QtCore.pyqtSignal(str)
 
@@ -39,7 +37,7 @@ class ClientWind(QtWidgets.QWidget):
         self.show()
 
     def connect_server(self, addr):
-        self.client = not_alone.client.Client(self.name, addr)
+        self.client = not_alone.client.Client(addr)
         self.handler = MessageHandler(self.client)
         self.handler.new_message.connect(lambda msg: self.add_messages(msg))
         self.handler.start()
