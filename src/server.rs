@@ -3,7 +3,6 @@ use pyo3::prelude::*;
 
 use std::net::{TcpListener, TcpStream, SocketAddr};
 use std::io::{Read, Write};
-use std::str::from_utf8;
 use std::{time, thread};
 
 #[pyclass]

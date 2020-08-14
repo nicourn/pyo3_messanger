@@ -3,8 +3,6 @@ use pyo3::prelude::*;
 
 use std::net::TcpStream;
 use std::io::{Read, Write};
-use std::str::from_utf8;
-use std::{thread, time};
 
 #[pyclass]
 pub struct Client{
@@ -26,7 +24,7 @@ impl Client{
 
     pub fn read_message(&mut self) -> PyResult<String>{
         let mut buff = String::new();
-        self.connecter.read_to_string(&mut buff);
+        self.connecter.read_to_string(&mut buff).unwrap_or_default();
 
         Ok(buff.trim().to_string())
     }
